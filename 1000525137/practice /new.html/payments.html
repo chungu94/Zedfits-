@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <div style="background:#fff; border:2px solid red; padding:15px; margin-top:20px;">
+  <h3 style="color:red;">Pay with Airtel Money</h3>
+  <p>1. Dial *115# -> Send Money -> Enter: <b>YOUR NUMBER 097XXXXXXX</b></p>
+  <p>2. Amount: <span id="totalAmount"></span></p>
+  <p>3. Enter Transaction ID after payment:</p>
+  <input type="text" id="airtelTxId" placeholder="e.g. 1234567890" style="width:100%; padding:10px;">
+  <button onclick="sendToWhatsapp()" style="background:#FF0000; color:white; padding:12px; width:100%; margin-top:10px; border:none;">
+    CONFIRM PAYMENT ON WHATSAPP
+  </button>
+</div>
+
+<script>
+function sendToWhatsapp(){
+  let tx = document.getElementById('airtelTxId').value;
+  let msg = `Hello ZED-FiTS, I paid with Airtel Money. TxID: ${tx} for my order`;
+  window.open(`https://wa.me/26097XXXXXXX?text=${encodeURIComponent(msg)}`);
+}
+</script>
+  
+</body>
+
+</html>

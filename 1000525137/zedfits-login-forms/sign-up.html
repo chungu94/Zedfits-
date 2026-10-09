@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sign Up - ZedFits</title>
+<style>
+*{box-sizing:border-box; margin:0; padding:0; font-family:Arial}
+body{
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  /* Transparent Navy Blue Background + image */
+  background: linear-gradient(rgba(10,35,66,0.85), rgba(10,35,66,0.88)), 
+              url('https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?q=80&w=1000');
+  background-size:cover;
+  background-position:center;
+  padding:20px;
+}
+.card{
+  width:100%; max-width:380px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:16px;
+  padding:30px 25px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  text-align:center;
+}
+.logo{color:#fff; font-weight:900; font-size:22px; letter-spacing:1px; margin-bottom:5px;}
+.logo span{color:#CF0F0E;}
+.sub{color:rgba(255,255,255,0.7); font-size:11px; margin-bottom:22px;}
+input{
+  width:100%; padding:13px 15px; margin-bottom:12px;
+  background: rgba(255,255,255,0.95);
+  border:none; border-radius:8px;
+  font-size:13px; outline:none;
+}
+.btn-sign{
+  width:100%; padding:13px; margin-top:8px;
+  background:#CF0F0E; color:#fff; border:none; border-radius:8px;
+  font-weight:900; font-size:13px; letter-spacing:0.5px; cursor:pointer;
+}
+.btn-sign:active{transform:scale(0.98);}
+.links{margin-top:16px; font-size:10px; color:rgba(255,255,255,0.7);}
+.links a{color:#fff; font-weight:700; text-decoration:none; border-bottom:1px solid #CF0F0E;}
+.divider{margin:18px 0; height:1px; background:rgba(255,255,255,0.15);}
+.social{display:flex; gap:8px;}
+.social button{flex:1; padding:10px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; border-radius:8px; font-size:11px; font-weight:700;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">ZED-<span>FITS</span></div>
+  <div class="sub">Create your Lusaka account</div>
+  
+  <input type="text" placeholder="Full Name">
+  <input type="email" placeholder="Email Address">
+  <input type="tel" placeholder="Phone (097... )">
+  <input type="password" placeholder="Password">
+  <input type="password" placeholder="Confirm Password">
+  
+  <button class="btn-sign" onclick="location.href='/zedfits.html'">CREATE ACCOUNT</button>
+  
+  <div class="links">Already have account? <a href="/zedfits-login-forms/login page.html">Login</a></div>
+  
+  <div class="divider"></div>
+  
+  <div class="social">
+    <button>Google</button>
+    <button>Facebook</button>
+  </div>
+</div>
+
+</body>
+</html>

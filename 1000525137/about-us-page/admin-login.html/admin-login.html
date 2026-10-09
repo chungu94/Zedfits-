@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - ZedFits</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:rgba(10,35,66,0.9);padding:20px}
+.card{width:100%;max-width:340px;background:#fff;border-radius:12px;padding:28px 22px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+input{width:100%;padding:12px;margin-bottom:12px;border:1.5px solid #ddd;border-radius:6px;font-size:13px}
+.btn{width:100%;padding:12px;background:#CF0F0E;color:#fff;border:none;border-radius:6px;font-weight:900;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="card">
+<h3 style="margin-bottom:15px">Admin Login</h3>
+<input id="email" type="email" placeholder="Admin Email">
+<input id="pass" type="password" placeholder="Password">
+<button class="btn" onclick="login()">LOGIN</button>
+<p id="err" style="color:red;font-size:11px;margin-top:10px"></p>
+</div>
+
+<script>
+function login(){
+  // CHANGE THESE TO YOUR OWN
+  const ADMIN_EMAIL = "admin@zedfits.com";
+  const ADMIN_PASS = "ZedFits2026";
+
+  let e = document.getElementById('email').value;
+  let p = document.getElementById('pass').value;
+
+  if(e === ADMIN_EMAIL && p === ADMIN_PASS){
+    sessionStorage.setItem("isAdmin","true");
+    window.location.href = "admin.html";
+  }else{
+    document.getElementById('err').innerText = "Wrong email or password!";
+  }
+}
+</script>
+</body>
+</html>
