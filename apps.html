@@ -1,0 +1,96 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Cart - With Comments</title>
+<style>
+body{font-family:Arial;padding:20px;background:#f5f5f5}
+.item{background:#fff;padding:15px;margin:10px 0;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
+button{background:#111;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer}
+#cart{background:#fff;padding:15px;border-radius:8px;margin-top:20px;border:2px solid #111}
+</style>
+</head>
+<body>
+
+<h2>Products</h2>
+
+<!-- PRODUCT 1: When button is clicked, it calls addToCart() with product name and price -->
+<div class="item">
+  <span>T-Shirt - K150</span>
+  <button onclick="addToCart('T-Shirt', 150)">Add to Cart</button>
+</div>
+
+<!-- PRODUCT 2: Same function but different product data -->
+<div class="item">
+  <span>Hoodie - K300</span>
+  <button onclick="addToCart('Hoodie', 300)">Add to Cart</button>
+</div>
+
+<!-- PRODUCT 3: Third product example -->
+<div class="item">
+  <span>Cap - K100</span>
+  <button onclick="addToCart('Cap', 100)">Add to Cart</button>
+</div>
+
+<!-- CART DISPLAY AREA: This is where cart items will appear on the page -->
+<div id="cart">
+  <h3>🛒 Cart (<span id="count">0</span>)</h3> <!-- count shows number of items in cart -->
+  <div id="cart-items">Empty</div> <!-- This div will be filled by JavaScript -->
+  <b>Total: K<span id="total">0</span></b> <!-- total price display -->
+</div>
+
+<script>
+// Create empty array to store cart items - starts empty []
+let cart = [];
+
+// FUNCTION: This runs every time user clicks "Add to Cart" button
+// name = product name, price = product price
+function addToCart(name, price) {
+  
+  // Step 1: Add new product object {name, price} into cart array using push()
+  cart.push({name, price});
+  
+  // Step 2: Log to CONSOLE so developer can see what was added
+  console.log("Added:", name, "Price: K" + price); // Shows single item added
+  
+  console.log("Full Cart:", cart); // Shows full array with all items in console
+
+  // Step 3: Call function to update what user sees on the page
+  updateCartDisplay();
+}
+
+// FUNCTION: Updates the cart display on the webpage
+function updateCartDisplay() {
+  
+  // Get the HTML elements where we will show cart data
+  let cartDiv = document.getElementById("cart-items"); // Where list of items appears
+  let total = 0; // Variable to calculate total price, starts at 0
+
+  // Check if cart is empty
+  if (cart.length === 0) {
+    cartDiv.innerHTML = "Empty"; // Show "Empty" text if no items
+  } else {
+    // If cart has items, clear the div first
+    cartDiv.innerHTML = "";
+    
+    // Loop through each item in cart array
+    // forEach runs code for every item in the cart
+    cart.forEach((item, index) => {
+      // Add each item to the page with number, name and price
+      cartDiv.innerHTML += `${index + 1}. ${item.name} - K${item.price} <br>`;
+      
+      // Add item price to total
+      total += item.price;
+    });
+  }
+
+  // Update item count on page - shows how many items in cart
+  document.getElementById("count").innerText = cart.length;
+  
+  // Update total price on page
+  document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>
